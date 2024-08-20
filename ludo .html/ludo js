@@ -1,0 +1,6 @@
+export class ludo {
+    constructor() {
+        console.log('hello world Lets play Ludo');
+        
+    }
+}
