@@ -1,8 +1,8 @@
 <html>
     <head>
         <title> class html</title>
-        <meta charset="=UTF-8">
-        <meta name="viewport" content="width=device-width, inital-scale=1.0">
+        <link rel='icon' type='image/png' href='simple-twitter-16x16-icon-png-7.png'/>
+    
         <script src="tailwindcss.js"></script>
         <script>
             tailwind.config = {
@@ -65,7 +65,7 @@
                             900: '#000000',
                             950: '#000000'
                         },
-                        'light purple': {
+                        'seaGreen': {
                             DEFAULT: '#31A24C',
                             50: '#A6E4B5',
                             100: '#97DFA8',
@@ -84,18 +84,22 @@
               }
             }
           </script>
+       
     </head>
 
-    <body class="bg-white-50 flex flex-col text-blue-900 h-svh">
+    <body class="bg-white-100 flex flex-col text-blue-900 h-svh">
         <div class="bg-red-200 p-8">
-         <h1 class=" text-blue-500 text-6xl">Header</h1>
+         <h1 class=" text-blue-900 text-6xl">Header</h1>
         </div>
+        
         <div id='container' class="flex grow flex-column">
             <div class="w-72 box-border p-8 bg-red-100">
-            <h1 class="text-blue-300 text-2xl">Sidebar</h1>     
+          
+            <h1 class="text-blue-300 text-2xl">Sidebar</h1>
+            
         </div>
         <div id='mainBox' class="flex w-full gap-4">
-            <div class='bg-white-500 text-black-500 p-4 rounded-md shadow-2xl slideDown' style='width:30%;'>
+            <div class='bg-white-400 text-black-500 p-4 rounded-md shadow-2xl slideDown' style='width:30%;'>
                 <form id='ecommerceForm' onsubmit='event.preventDefault();' style='display:flex ;flex-direction:column; gap:4px;'>
                     <label>Checkout Form</label>
                     <input type='text' name='first_name' required id='first_name' placeholder="Enter your first_name"/>
@@ -141,7 +145,7 @@
                     </div>
                 </div>
          </div>
-                <div id='main' class="p-4 grid grow border-box bg-white-50 grid-cols-2 gap-4">
+                <div id='main' class="p-4 grid grow border-box grid-cols-2 gap-4">
 
             </div>
         </div>
@@ -368,7 +372,7 @@
                 </div>` ;
 
 
-                 cartHtml += `<div class="box" style="background-color:pink;">
+                 cartHtml += `<div class="box" style="background-color:aqua;">
                     <div style="padding-left:10px; border-radius: 50%; padding-right:10px; display:flex; justify-content:space-between; align-items:centre;">
                         <p>`+ x.name +`</p>
                         `+ priceBox +`
@@ -384,7 +388,7 @@
                       </div>`;
 
             let totalAmount = calculateTotalAmount();
-            cartHtml+= `<div style="padding:10px; font-weight:bold color:purple;">
+            cartHtml+= `<div style="padding:10px; font-weight:bold;">
                 <h3>Total Amount: `+ totalAmount+`</h3>
                 </div>`;
         })
@@ -393,30 +397,33 @@
 
     function renderProducts() {
        let productHtml = '';
-       var productDiv = document.getElementById('main')
+       var productDiv = document.getElementById('main');
+
+
        products.forEach((x) => {
        var priceBox = x.discounted_price < x.price ? `<div class = 'actual-price'>
-         <span class='text-red-600 line-through'>
+        <span class='discount-price'> `+x.price+ `</span>
         `+x.discounted_price+`
-        </div>` : `<div class='text-light purple-500'>
+        </div>` : `<div class='actual-price'>
             `+x.price+`
             </div>` ;
-        productHtml +=  `<div class='bg-white-500 text-black-500 p-4 rounded-md shadow-2xl slideDown'>'
-           <h1 class='font-bold'>`+ x.name + `</h1>
-            <p class='font-medium'>`+ x.description + `</p>
+       
+
+        productHtml += `<div class='grid-item slideDown'>
+            <h1>` + x.name + `</h1>
+            <p>` + x.description + `</p>
             `+ priceBox +`
-            <div class=''>
+            <div class='addToCartBox'>
                 <input type='number' id='qty` + x.id +`'/>
-                <button class='bg-blue-500 text-white-200 font-medium rounded-lg w-32 py-1 ' onclick='addToCart(`+x.id+`)'>Add to Cart</button>
-               
+                <button onclick='addToCart(`+x.id+`)'>Add to Cart</button>
+
                 </div>
           </div>`;
 
     });
     productDiv.innerHTML = productHtml;
+
     }
-    </script>
-    </html>
 
    
     
