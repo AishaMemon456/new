@@ -1,4 +1,4 @@
-<html>
+<html></html>
     <head>
         <title> class html</title>
         <meta charset="=UTF-8">
@@ -86,38 +86,64 @@
           </script>
     </head>
 
-    <body class="bg-white-50 flex flex-col text-blue-900 h-svh">
+    <body id="app" class="bg-white-50 flex flex-col text-blue-900 h-svh">
         <div class="bg-red-200 p-8">
-         <h1 class=" text-blue-500 text-6xl">Header</h1>
+            <h1 class="text-blue-500 text=6x1">{{ message }}</h1>
+            <button @click="changesMsg">change me</button>
         </div>
-        <div id='container' class="flex grow flex-column">
+        <div id="container" class="flex grow flex-column">
             <div class="w-72 box-border p-8 bg-red-100">
-            <h1 class="text-blue-300 text-2xl">Sidebar</h1>     
-        </div>
-        <div id='mainBox' class="flex w-full gap-4">
-            <div class='bg-white-500 text-black-500 p-4 rounded-md shadow-2xl slideDown' style='width:30%;'>
-                <form id='ecommerceForm' onsubmit='event.preventDefault();' style='display:flex ;flex-direction:column; gap:4px;'>
-                    <label>Checkout Form</label>
-                    <input type='text' name='first_name' required id='first_name' placeholder="Enter your first_name"/>
-                    <span style='color:red;' hidden id='taskErrorField-first_name' >This field is required</span>
-                    <input type='text' name='last_name' required id='last_name' placeholder='Enter your last_name'/>
-                    <span style='color:red;' hidden id='taskErrorField-last_name' >This field is required</span>
-                    <input type='tel' name='number' required id = 'number' placeholder="Enter your phone_number"/>
-                    <span  style='color:red;' hidden id= 'taskErrorField-number'>This field is required</span>
-                    <textarea id="address" name="address" placeholder="Enter your full address"></textarea>
-                    <span style='color:red;' hidden id ='taskErrorField-address'>This field  is required</span>
-                    <input type ='email' name='email' required id='email' placeholder="Enter your email"/>
-                    <span style='color:red;' hidden id='taskErrorField-email'>This field is required</span>
-                    <input type='text' name='postal_code' required id='postal_code' placeholder="Enter your postal_code"/>
-                    <span style='color:red;' hidden id ='taskErrorField-postal_code'>This field is required</span>
-                    <select id="city" name="city">
-                        <option selected>KARACHI</option>
-                        <option selected>ISLAMABAD</option>
-                        <option selected>LAHORE</option>
-                        <option selected>HYDERABAD</option>
-                        <option selected>GURANWALA</option>
-                    </select>
-                    <span style='color:rgba(255, 0, 0, 0.514);' hidden id ='taskErrorField-city'>This field is required</span>
+                <h1 class="text-blue-400 text-2x1">sidebar</h1>
+            </div>
+            <div id="mainbox" class="flex w-full gap-4">
+                <div
+          class="bg-white-500 text-black-500 p-4 rounded-md shadow-2xl slideDown"
+          style="width: 30%"
+        >
+        <form
+        id="ecommerceForm"
+        onsubmit="event.preventDefault();"
+        style="display: flex; flex-direction: column; gap: 4px"
+      >
+        <label>Checkout Form</label>
+        <input
+          type="text"
+          name="first_name"
+          required
+          id="first_name"
+          placeholder="Enter you first_name"
+        />
+        <span style="color: red" hidden id="taskErrorField-first_name"
+          >This field is required</span
+          >
+          <input
+          type="text"
+          name="last_name"
+          required
+          id="last_name"
+          placeholder="Enter you last_name"
+          />
+                    <span style="color: red" hidden id="taskErrorField-last_name"
+                     >This field is required</span>
+                     >
+                     <input
+                     type="tel"
+                     name="number"
+                     required
+                     id="number"
+                     placeholder="Enter you phone-number"
+                     />
+                     <span style="color: red" hidden id="taskErrorField-number"
+                     >This field is required</span
+                     >
+                     <textarea
+                     id="address"
+                     name="address"
+                     placeholder="Enter your full address"
+                     ></textarea>
+                     <span style="color: red"
+
+                     
                     <select id="country" name="country">
                         <option selected>PAKISTAN</option>
                     </select>
