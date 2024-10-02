@@ -7,6 +7,9 @@
     <script src="js/react-dev.js"></script>
     <script src="js/react-dom.js"></script>
     <script src="tailwindcss.js"></script>
+     <!-- Assignment react todo app through cdn using redux, redux state management tool it stores your data in localstorage-->
+    <!-- Reference Link mentioned below -->
+    <!-- https://gist.github.com/erspark2002/0ea49cc782049df5f3de271ba9ff41e1 -->
     <script>
         tailwind.config = {
             theme: {
@@ -82,15 +85,23 @@
                             900: '#000000',
                             950: '#000000'
                         },
-                    }
-                }
-            }
-        }
+                    },
+                },
+            },
+        };
     </script>
 </head>
 
-<body id="app" class="bg-white-50 flex flex-col text-blue-900 h-svh">
-    <div class="bg-red-50 p-8">
+<body className="bg-white-50 flex flex-col text-blue-900 h-svh">
+    <div id="AppComponent"></div>
+    <body>
+        <script
+        src="https://unpkg.com/@babel/standalone@7.10.3/babel.min.js"
+        crossorigin
+        ></script>
+    </script type="tect/babel" data-presets="react,stage-3">
+    // Define a React functional component
+    
         <h1 class="text-blue-500 text-6xl" id="headerComponent"> {{ message }}</h1>
     </div>
     <div id='container' class="flex grow flex-column">
@@ -156,6 +167,102 @@
 </body>
 <script>
      // Define a React functional component
+     const Example = () => {
+        const [count,setcount] = React.useState(0);
+        React.useEffect(() => {
+         document.tittle = `You clicked ${count} times`;
+        });
+        return (
+            <div>
+               <p>You clicked {count} times</p> 
+               <button onClick={() => setCount(count + 1)}>
+                click me
+                </button>
+                </div>
+        );
+        };
+         // style becomes object, its not a string anymore, if it is string your application will not render
+    // example
+    // <div style='width:30px; heigh:30px'> this will not render in react
+    // <div style={{'width':30px, 'flexDirection':30px}}
+
+    // class becomes className, it will remain string
+    //example
+    // <div class="px-2 py-2 w-10"> this will not render
+    // <div className="px-2 py-2 w-10">       
+        
+    const ProductBox = () => {
+        const products = [
+            {
+                
+                id: 1,
+                name: 'water bottle',
+                description: 'color: blue size: large',
+                price: 100,
+                discounted_price: 99,
+            },
+            {
+                id: 2,
+                name: 'mouse',
+                description: 'wired usb port',
+                price: 250,
+                discounted_price: 199,
+            },
+            {
+                id: 3,
+                name: 'watch',
+                description: 'color: black, watch type: smart, brand: apple',
+                price: 5000,
+                discounted_price: 4999,
+            },
+            {
+                id: 4,
+                name: 'infinix s23',
+                description: 'color blue, storage: 120gb ram: 2gb display: 6x4',
+                price: 25000,
+                discounted_price: 24999,
+            },
+            {
+                id: 5,
+                name: 'shoes',
+                description: 'size: 8, color blue, type: sports wear',
+                price: 3000,
+                discounted_price: 3000,
+            },
+        ];
+    
+        return (
+            <>
+            {
+                products.map((x) => {
+                    return (
+                        <div className="bg-white-500 text-black-500 p-4 rounded-md shadow-2xl slideDown">
+                            <h1 className="font-bold">{ x.name }</h1>
+                            <p className="font-medium">{ x.description }</p>
+
+                            <div className="text-seaGreen-500" v-if="x.discounted_price < x.price">
+                            <span className="text-red-600 line-through">{ x.price }</span>
+                            { x.discounted_price }
+                            </div>
+                            <div className="text-seaGreen-500" v-else>{ x.price }</div>
+                            <div className="">
+                            <input type="number" id='"qty"+ x.id' />
+                            <button
+                                className="bg-blue-400 text-white-200 font-medium rounded-lg w-32 py-1"
+                                onClick={()=>{ addToCart(x.id) }}
+                            >
+                                Add to Cart
+                            </button>
+                            </div>
+                        </div>
+                     )
+                })
+            }
+            </>
+            }
+        )
+        )
+    
      function App() {
         debugger
         const [message, setMessage] = React.useState('Hello React!');
