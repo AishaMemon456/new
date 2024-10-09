@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <script src="../assets/react-dev.js"></script>
-    <script src="../assets/react-dom.js"></script>
-    <script src="../assets/tailwindcss.js"></script>
+ <head>  
+    <title>Class work | Home Work | test server change</title>
+    <meta charset="UTF-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="react-dev.js"></script>
+    <script src="react-dom.js"></script>
+    <script src="tailwindcss.js"></script>
+    <!-- Assignment react todo app through cdn using redux, redux state management tool it stores your data in localstorage-->
+    <!-- Reference Link mentioned below -->
+    <!-- https://gist.github.com/erspark2002/0ea49cc782049df5f3de271ba9ff41e1 -->
     <script>
         tailwind.config = {
             theme: {
@@ -42,10 +47,10 @@
                             900: '#203535',
                             950: '#152323'
                         },
-                    }
-                }
-            }
-        }
+                    },
+                },
+            },
+        },
     </script>
 </head>
 
@@ -54,8 +59,30 @@
         
     </div>
 </body>
-<script src="https://unpkg.com/@babel/standalone@7.10.3/babel.min.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone@7.10.3/babel.min.js"
+crossorigin
+></script>
 <script type="text/babel" data-presets="react,stage-3">
+     // Define a React functional component
+     const Example = () => {
+      const [count, setCount] = React.useState(0);
+      React.useEffect(() => {
+        document.title = `You clicked ${count} times`;
+      });
+      return (
+        <div>
+          <p>You clicked {count} times</p>
+          <button onClick={() => setCount(count + 1)}>
+            Click me
+          </button>
+        </div>
+      );
+    };
+
+    // style becomes object, its not a string anymore, if it is string your application will not render
+    // example
+    // <div style='width:30px; heigh:30px'> this will not render in react
+    // <div style={{'width':30px, 'flexDirection':30px}}
 
     const products = [
         {
